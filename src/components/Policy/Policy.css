@@ -1,0 +1,44 @@
+.policy-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.policy-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.policy-box img {
+  width: 50px;
+}
+
+.policy-title {
+  color: #323637;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.policy-description {
+    color: #919697;
+    margin-top: .5rem;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .policy-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      .policy-box {
+        margin-top: 40px;
+      }
+      .policy-title {
+        font-size: 15px;
+      }
+      .policy-description {
+       font-size: 15px;
+    }
+  }

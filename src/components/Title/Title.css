@@ -1,0 +1,54 @@
+.title-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.title-box h2 {
+  font-size: 2rem;
+  color: rgb(72, 71, 71);
+  font-weight: 500;
+}
+
+.title-box h2 span {
+  color: gray;
+}
+
+.title-line {
+  width: 3.5rem;
+  height: 3px;
+  background-color: rgb(72, 71, 71);
+}
+
+
+@media (max-width: 820px) {
+  .title-box h2 {
+    font-size: 1.5rem;
+    color: rgb(72, 71, 71);
+    font-weight: 500;
+  }
+}
+@media (max-width: 768px) {
+  .title-box h2 {
+    font-size: 1.3rem;
+    color: rgb(72, 71, 71);
+    font-weight: 500;
+  }
+
+  .title-line {
+    width: 3rem;
+    height: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title-box h2 {
+    font-size: 1.2rem;
+    color: rgb(72, 71, 71);
+    font-weight: 500;
+  }
+
+  .title-line {
+    width: 2.5rem;
+    height: 2px;
+  }
+}

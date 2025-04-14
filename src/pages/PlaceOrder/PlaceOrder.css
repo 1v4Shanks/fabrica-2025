@@ -1,0 +1,167 @@
+.placeoder-container {
+  width: 100%;
+}
+.delivery-information-container {
+  width: 100%;
+  display: flex;
+  gap: 10rem;
+}
+.delivery-information-title {
+  margin-bottom: 3rem;
+  padding: 1rem;
+}
+.delivery-information {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  flex: 1;
+  padding: 1rem;
+}
+
+.delivery-information .input {
+  border: 1px solid #d3d5d5;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 100%;
+}
+
+.delivery-information .input::placeholder {
+  color: #919697;
+}
+
+.del-info-input {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* ---------- bill---------- */
+
+.billing-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+}
+.billing-total {
+  width: 100%;
+}
+
+.payment-methods {
+  width: 100%;
+}
+
+.payment-methods {
+  margin-top: 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr 4fr;
+  column-gap: 1rem;
+  height: 2.2rem;
+}
+
+.custom-radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  border: 1px solid #d6d8d9;
+  cursor: pointer;
+  color: rgb(107 114 128/1);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.custom-radio input {
+  opacity: 0;
+}
+
+.stripe-logo {
+  width: 3rem;
+}
+.razorpay-logo {
+  width: 6rem;
+}
+
+.radio-circle {
+  position: absolute;
+  top: 30%;
+  left: 10px;
+  height: 0.9rem;
+  width: 0.9rem;
+  border-radius: 50%;
+  border: 1px solid #adb0b1;
+}
+
+.custom-radio:has(input:checked) .radio-circle {
+  background-color: rgb(57, 221, 57);
+}
+
+.place-order-btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 2rem;
+}
+
+.place-order-btn button {
+  background-color: #000;
+  color: #fff;
+  height: 2.7rem;
+  width: 12rem;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+
+.place-order-btn button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+  .delivery-information-container {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+  }
+  .custom-radio {
+    font-size: 0.6rem;
+  }
+
+  .stripe-logo {
+    width: 2rem;
+  }
+  .razorpay-logo {
+    width: 4rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .delivery-information-container {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+  }
+  .custom-radio {
+    font-size: 0.6rem;
+  }
+
+  .stripe-logo {
+    width: 2rem;
+  }
+  .razorpay-logo {
+    width: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .delivery-information-title {
+    margin-bottom: 1rem;
+  }
+  .delivery-information-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

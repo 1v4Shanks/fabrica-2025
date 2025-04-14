@@ -1,0 +1,87 @@
+.contact-us-container {
+  width: 100%;
+}
+
+.contact-us-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-us-content {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.contact-us-image {
+  width: 30rem;
+}
+
+.contact-us-details {
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+.contact-us-details p {
+  line-height: 1.4rem;
+  font-size: 0.9rem;
+  color: #575859;
+}
+
+.contact-us-details .mini-heading {
+  font-weight: 600;
+  color: #323637;
+  font-size: 1.3rem;
+}
+
+.exploreJobs-btn {
+  width: 10rem;
+  height: 3rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exploreJobs-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+}
+
+.exploreJobs-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+  .contact-us-image {
+    width: 25rem;
+  }
+}
+@media (max-width: 820px) {
+  .contact-us-details {
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-us-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-us-image {
+    width: 100%;
+  }
+}

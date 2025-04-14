@@ -1,0 +1,272 @@
+/* ========== NAVBAR ========== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  padding: 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.app-logo {
+  width: 9rem;
+}
+
+/* ========== NAV LINKS ========== */
+
+.nav-links {
+  display: flex;
+  width: 20rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links ul li {
+  cursor: pointer;
+}
+
+.nav-links ul li .nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #444849;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav-links ul li .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  width: 0;
+  height: 1.5px;
+  background-color: #000;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-links ul li .nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ========== ACTION ICONS ========== */
+
+.action-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  width: 40rem;
+  padding-top: 2px;
+}
+
+.action-icons li {
+  cursor: pointer;
+}
+
+.action-icons li img {
+  width: 1.3rem;
+}
+
+/* Cart Badge */
+
+.action-icons .cart-logo {
+  position: relative;
+}
+
+.action-icons .cart-logo span {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  background-color: #000;
+  color: #fff;
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.7rem;
+  padding-top: 2px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+/* Profile Dropdown */
+
+.action-icons .profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.action-icons .profile-container .profile-outerBox {
+  position: absolute;
+  top: 90%;
+  right: 0%;
+  padding-top: 1rem;
+  display: none;
+  cursor: default;
+  z-index: 10;
+}
+
+.action-icons .profile-container .profile-box {
+  background-color: #eeedeb;
+  width: 8rem;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.action-icons .profile-container:hover .profile-outerBox,
+.profile-outerBox:hover {
+  display: block;
+}
+
+.action-icons .profile-container .profile-box p {
+  font-weight: 500;
+  color: #444849;
+  cursor: pointer;
+}
+
+.action-icons .profile-container .profile-box p:hover {
+  color: #000;
+}
+
+/* ========== MENU ICON (Mobile) ========== */
+
+.menu-icon-box,
+.menu-icon {
+  display: none;
+}
+
+/* ========== RESPONSIVE MEDIA QUERIES ========== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    width: 18rem;
+    justify-content: center;
+  }
+
+  .app-logo {
+    width: 7rem;
+  }
+
+  .nav-links ul li .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .action-icons {
+    width: 23rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    width: 15rem;
+  }
+
+  .nav-links ul li .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .action-icons {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-logo {
+    width: 5rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    transform: translateX(100%);
+    height: 100vh;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav-links.open {
+    transform: translateX(0%);
+  }
+
+  .nav-links ul {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-links ul li {
+    border-bottom: 1px solid #bcccdc;
+    width: 100%;
+    height: 3rem;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .nav-links ul li .nav-link::after {
+    content: none;
+  }
+
+  .nav-links ul li:has(.nav-link.active) {
+    background-color: #000;
+  }
+
+  .nav-links ul li .nav-link.active {
+    color: #fff;
+  }
+
+  .dropdown-icon {
+    width: 1rem;
+    height: 1.2rem;
+    transform: rotate(180deg);
+    position: absolute;
+    left: 3%;
+  }
+
+  .close-Menu {
+    margin-left: 1rem;
+  }
+
+  .menu-icon-box,
+  .menu-icon {
+    display: block;
+  }
+
+  .action-icons {
+    width: 16rem;
+  }
+
+  .action-icons li img {
+    width: 1rem;
+  }
+}

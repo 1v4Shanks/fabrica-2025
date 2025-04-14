@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&family=Kumbh+Sans:wght@100..900&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+.hero-container {
+  border: 1px solid rgb(115, 114, 114);
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 1024px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(115, 114, 114);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(115, 114, 114);
+  }
+}
+
+.left-hero {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-hero-content {
+  width: 22rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.left-hero-content .left-hero-first-line {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: right;
+  color: rgb(72, 71, 71);
+  animation: leftAnimation 1s ease-in-out forwards;
+}
+
+.left-hero-content .left-hero-first-line hr {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  height: 3px;
+  background-color: #000;
+  width: 3rem;
+}
+@media (max-width: 1024px) {
+  .left-hero {
+    width: 100%;
+  }
+  .left-hero-content {
+    width: 15rem;
+  }
+  .left-hero-content .left-hero-first-line {
+    font-size: 1rem;
+  }
+  .left-hero-content .left-hero-first-line hr {
+    width: 2rem;
+    left: 25%;
+    height: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .left-hero {
+    width: 100%;
+  }
+  .left-hero-content {
+    width: 15rem;
+  }
+  .left-hero-content .left-hero-first-line {
+    font-size: 1rem;
+  }
+  .left-hero-content .left-hero-first-line hr {
+    width: 2rem;
+    left: 25%;
+    height: 2px;
+  }
+}
+
+.left-hero-content h2 {
+  font-family: "Prata", serif;
+  font-size: 3rem;
+  font-weight: 500;
+  color: rgb(72, 71, 71);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  animation: heroTitle 1s ease-in-out forwards;
+}
+.right-hero {
+  width: 50%;
+  height: 100%;
+}
+.right-hero .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left-hero-content .left-hero-second-line {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  color: rgb(72, 71, 71);
+  animation: rightAnimation 1s ease-in-out forwards;
+}
+
+.left-hero-content .left-hero-second-line hr {
+  position: absolute;
+  top: 40%;
+  right: 60%;
+  height: 3px;
+  background-color: #000;
+  width: 3rem;
+}
+@media (max-width: 1024px) {
+  .left-hero-content h2 {
+    font-size: 2rem;
+  }
+  .right-hero {
+    width: 100%;
+    height: 50%;
+  }
+  .left-hero-content .left-hero-second-line hr {
+    width: 2rem;
+    right: 47%;
+    height: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .left-hero-content h2 {
+    font-size: 2rem;
+  }
+  .right-hero {
+    width: 100%;
+    height: 50%;
+  }
+  .left-hero-content .left-hero-second-line hr {
+    width: 2rem;
+    right: 47%;
+    height: 2px;
+  }
+}
+
+@keyframes leftAnimation {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rightAnimation {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes heroTitle {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

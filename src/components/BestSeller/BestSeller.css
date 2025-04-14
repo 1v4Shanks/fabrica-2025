@@ -1,0 +1,34 @@
+.latest-collection-container {
+  width: 100%;
+}
+
+.best-sellers-title {
+  text-align: center;
+  padding: 32px 0px 32px 0px;
+}
+.best-sellers-title .best-sellers-text {
+  margin-top: 10px;
+  color: #4c585b;
+}
+
+.best-sellers-box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px 16px;
+}
+@media (max-width: 1024px) {
+  .best-sellers-box {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .best-sellers-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .best-sellers-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
