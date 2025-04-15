@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, useState } from "react";
 import products from "../assets/assets";
 
 export const ShopContext = createContext();
@@ -9,7 +9,7 @@ const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [orderedItems, setOrderedItems] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("cashOnDelivery");
-  const mainRef = useRef();
+
   const fee = 10;
   const subTotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -36,7 +36,6 @@ const ShopContextProvider = ({ children }) => {
         fee,
         searchText,
         setSearchText,
-        mainRef,
         cartItems,
         setCartItems,
         subTotal,

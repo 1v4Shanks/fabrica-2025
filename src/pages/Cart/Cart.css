@@ -195,6 +195,7 @@
 @media (max-width: 640px) {
   .cart-item {
     grid-template-columns: 4fr 0.5fr 0.5fr;
+    padding-block: .5rem;
   }
 
   .cart-item-thumbnail {
@@ -204,7 +205,7 @@
   .cart-item-details .cart-item-name {
     font-weight: 500;
     font-size: 0.7rem;
-    margin-bottom: 1rem;
+    margin-bottom: .7rem;
   }
 
   .cart-item-details .price-and-size {

@@ -4,7 +4,7 @@ import { ShopContext } from "../../context/ShopContext";
 import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 function SearchBar() {
-  const { searchText, setSearchText, products } = useContext(ShopContext);
+  const { setSearchText, products } = useContext(ShopContext);
   const [text, setText] = useState("");
   const [searchData, setSearchData] = useState([]);
   const [clicked, setClicked] = useState(false);

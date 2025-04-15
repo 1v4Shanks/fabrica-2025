@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 function Product() {
   // Context and Route
-  const { products, currency, mainRef, cartItems, setCartItems } = useContext(ShopContext);
+  const { products, currency, setCartItems } = useContext(ShopContext);
   const { productId } = useParams();
 
   // State
@@ -26,13 +26,6 @@ function Product() {
       setImage(product.image[0]);
     }
   };
-
-  // Scroll to Top on Product Change
-  useEffect(() => {
-    if (mainRef?.current) {
-      mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [productId]);
 
   // Get Product on Load or Products Update
   useEffect(() => {
@@ -76,30 +69,33 @@ function Product() {
       return;
     }
 
-   setCartItems((prevCart)=> {
-    const existingIndex = prevCart.findIndex((item)=> item._id === product._id && item.size === selectedSize);
-    if(existingIndex !== -1){
-     return prevCart.map((item)=> {
-        if(item._id === product._id && item.size === selectedSize){
-          return {...item, quantity:item.quantity + 1}
-        }else{
-          return item;
-        }
-      });
-    }else{
-      return [...prevCart,
-        {
-          _id:product._id,
-          name:product.name,
-          price:product.price,
-          size:selectedSize,
-          quantity: 1,
-          image:product.image[0],
-        }
-      ]
-    }
-   })
-   toast.success('Item added to cart!');
+    setCartItems((prevCart) => {
+      const existingIndex = prevCart.findIndex(
+        (item) => item._id === product._id && item.size === selectedSize
+      );
+      if (existingIndex !== -1) {
+        return prevCart.map((item) => {
+          if (item._id === product._id && item.size === selectedSize) {
+            return { ...item, quantity: item.quantity + 1 };
+          } else {
+            return item;
+          }
+        });
+      } else {
+        return [
+          ...prevCart,
+          {
+            _id: product._id,
+            name: product.name,
+            price: product.price,
+            size: selectedSize,
+            quantity: 1,
+            image: product.image[0],
+          },
+        ];
+      }
+    });
+    toast.success("Item added to cart!");
   };
 
   if (!productData) {
@@ -172,7 +168,10 @@ function Product() {
             </div>
           </div>
 
-          <button className="product-add-to-cart-btn" onClick={()=>handleAddToCart(productData,size)}>
+          <button
+            className="product-add-to-cart-btn"
+            onClick={() => handleAddToCart(productData, size)}
+          >
             ADD TO CART
           </button>
 

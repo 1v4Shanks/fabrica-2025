@@ -5,10 +5,12 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ShopContextProvider from "./context/ShopContext.jsx";
 import LoginProvider from "./context/LoginContext.jsx";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+    <ScrollToTop/>
       <LoginProvider>
         <ShopContextProvider>
           <App />

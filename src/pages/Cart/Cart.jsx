@@ -7,11 +7,8 @@ import { useNavigate } from "react-router-dom";
 import CartTotal from "../../components/CartTotal/CartTotal";
 
 function Cart() {
-  const { cartItems, setCartItems, currency} =
-    useContext(ShopContext);
+  const { cartItems, setCartItems, currency } = useContext(ShopContext);
   const navigate = useNavigate();
-
-  
 
   const updateQuantity = (id, size, action) => {
     setCartItems((prevCarts) =>
@@ -109,10 +106,15 @@ function Cart() {
       {/* Totals */}
       <div className="cart-totals-container">
         <div className="cart-totals-details">
-          <CartTotal/>
+          <CartTotal />
           {/* Checkout Button */}
           <div className="checkout">
-            <button className="checkout-btn" onClick={()=> navigate("/place-order")}>PROCEED TO CHECKOUT</button>
+            <button
+              className="checkout-btn"
+              onClick={() => navigate("/place-order")}
+            >
+              PROCEED TO CHECKOUT
+            </button>
           </div>
         </div>
       </div>

@@ -12,15 +12,13 @@ import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Orders from "./pages/Orders/Orders";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import { ShopContext } from "./context/ShopContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RoutesProtector from "./RoutesProtector/RoutesProtector";
 
 function App() {
-  const { mainRef } = useContext(ShopContext);
   return (
-    <div className="Main-container" ref={mainRef}>
+    <div className="Main-container">
       <ToastContainer autoClose={3000} />
       <Navbar />
       <Routes>

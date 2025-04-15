@@ -6,8 +6,10 @@ import { assets } from "../../assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../context/ShopContext";
+import { LoginContext } from "../../context/LoginContext";
 function PlaceOrder() {
   const {paymentMethod, setPaymentMethod, placeOrder} = useContext(ShopContext);
+  const {user} = useContext(LoginContext);
   const navigate = useNavigate();
 
   const handlePaymentMethod = (name) => {
@@ -27,6 +29,12 @@ function PlaceOrder() {
       return;
     }
     e.preventDefault();
+
+    if (!user) {
+      toast.error("Please login to place your order.");
+      return;
+    }
+
     placeOrder();
     navigate("/orders");
   };

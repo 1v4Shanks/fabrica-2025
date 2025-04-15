@@ -8,6 +8,7 @@ import { ShopContext } from "../../context/ShopContext";
 import { LoginContext } from "../../context/LoginContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../authConfig/authConfig";
+import { toast } from "react-toastify";
 
 function Navbar() {
   const { cartItems } = useContext(ShopContext);
@@ -33,10 +34,6 @@ function Navbar() {
 
   const handleCloseMenu = () => {
     setVisible(false);
-  };
-
-  const handleCarts = () => {
-    navigate("/cart");
   };
 
   const jumpToOrdersPage = () => {
@@ -126,9 +123,11 @@ function Navbar() {
           )}
         </li>
 
-        <li className="cart-logo" onClick={handleCarts} role="button">
+        <li className="cart-logo" role="button">
+          <Link to="/cart">
           <img src={assets.cart_icon} alt="Cart Icon" />
           <span>{totalCarts}</span>
+          </Link>
         </li>
 
         <li className="menu-icon-box">
