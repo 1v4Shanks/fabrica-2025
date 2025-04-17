@@ -4,6 +4,7 @@ import { assets } from "../../assets/assets";
 function Hero() {
   return (
     <div className="hero-container">
+      <div className="right-hero">
       <div className="left-hero">
         <div className="left-hero-content">
           <div className="left-hero-first-line">
@@ -17,7 +18,6 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className="right-hero">
         <img src={assets.hero_img} alt="Hero image" className="hero-img" />
       </div>
     </div>
