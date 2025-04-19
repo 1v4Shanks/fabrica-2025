@@ -15,8 +15,13 @@ import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RoutesProtector from "./RoutesProtector/RoutesProtector";
+import { ShopContext } from "./context/ShopContext";
 
 function App() {
+  const { loading } = useContext(ShopContext);
+  if (loading) {
+    return <div className="loading">Loading products...</div>;
+  }
   return (
     <div className="Main-container">
       <ToastContainer autoClose={3000} />
