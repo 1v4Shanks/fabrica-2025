@@ -33,6 +33,7 @@
   border: 1px solid #919697;
   font-size: 1rem;
   color: #919697;
+  border-radius: 0;
 }
 
 .subscribe-button {
@@ -45,33 +46,33 @@
 }
 
 @media (max-width: 1024px) {
-    .subscribe-form {
-        margin-top: 1.5rem;
-        width: 35rem;
-        height: 3rem;
-      }
+  .subscribe-form {
+    margin-top: 1.5rem;
+    width: 35rem;
+    height: 3rem;
+  }
 }
 @media (max-width: 768px) {
-    .subscribe-form {
-        margin-top: 1.5rem;
-        width: 25rem;
-        height: 3rem;
-      }
+  .subscribe-form {
+    margin-top: 1.5rem;
+    width: 25rem;
+    height: 3rem;
+  }
 }
 
 @media (max-width: 640px) {
-    .subscribe-form {
-        margin-top: 1.5rem;
-        width:20rem;
-        height: 3rem;
-      }
-      .subscribe-button {
-        font-size: 1rem;
-        width: 30%;
-      }
-      .subscribe-input {
-        width: 70%;
-      }
+  .subscribe-form {
+    margin-top: 1.5rem;
+    width: 20rem;
+    height: 3rem;
+  }
+  .subscribe-button {
+    font-size: 1rem;
+    width: 30%;
+  }
+  .subscribe-input {
+    width: 70%;
+  }
   .subscribe-title {
     font-size: 1.5rem;
   }

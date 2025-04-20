@@ -11,7 +11,7 @@ import { auth } from "../../authConfig/authConfig";
 import { toast } from "react-toastify";
 
 function Navbar() {
-  const { cartItems } = useContext(ShopContext);
+  const { cartItems, setCartItems } = useContext(ShopContext);
   const { user } = useContext(LoginContext);
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ function Navbar() {
     try {
       await signOut(auth);
       navigate("/login");
+      setCartItems([]);
     } catch (error) {
       if (error.code === "auth/network-request-failed") {
         toast.error("Network error. Please check your connection.");
@@ -125,8 +126,8 @@ function Navbar() {
 
         <li className="cart-logo" role="button">
           <Link to="/cart">
-          <img src={assets.cart_icon} alt="Cart Icon" />
-          <span>{totalCarts}</span>
+            <img src={assets.cart_icon} alt="Cart Icon" />
+            <span>{totalCarts}</span>
           </Link>
         </li>
 

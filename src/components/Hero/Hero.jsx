@@ -4,21 +4,21 @@ import { assets } from "../../assets/assets";
 function Hero() {
   return (
     <div className="hero-container">
-      <div className="right-hero">
-      <div className="left-hero">
-        <div className="left-hero-content">
-          <div className="left-hero-first-line">
-            <hr />
-            <p> OUR BESTSELLERS</p>
-          </div>
-          <h2>Latest Arrivals</h2>
-          <div className="left-hero-second-line">
-            <p>SHOP NOW</p>
-            <hr />
+      <div className="top-hero">
+        <div className="inner-hero">
+          <div className="inner-hero-content">
+            <div className="inner-hero-first-line">
+              <hr />
+              <p> OUR BESTSELLERS</p>
+            </div>
+            <h2>Latest Arrivals</h2>
+            <div className="inner-hero-second-line">
+              <p>SHOP NOW</p>
+              <hr />
+            </div>
           </div>
         </div>
-      </div>
-        <img src={assets.hero_img} alt="Hero image" className="hero-img" />
+          <img src={assets.hero_img} alt="Hero image" className="hero-img" />
       </div>
     </div>
   );

@@ -6,22 +6,36 @@
   flex-direction: row;
 }
 
-.left-hero {
+.top-hero {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+}
+.top-hero .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: heroImage 0.5s ease-in-out forwards;
+}
+
+.inner-hero {
   position: absolute;
   width: 50%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
-.left-hero-content {
+.inner-hero-content {
   width: 22rem;
   height: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.left-hero-content .left-hero-first-line {
+.inner-hero-content .inner-hero-first-line {
   position: relative;
   font-size: 1rem;
   font-weight: 500;
@@ -30,7 +44,7 @@
   animation: leftAnimation 1s ease-in-out forwards;
 }
 
-.left-hero-content .left-hero-first-line hr {
+.inner-hero-content .inner-hero-first-line hr {
   position: absolute;
   top: 40%;
   left: 45%;
@@ -39,7 +53,7 @@
   width: 3rem;
 }
 
-.left-hero-content h2 {
+.inner-hero-content h2 {
   font-family: "Prata", serif;
   font-size: 3rem;
   font-weight: 500;
@@ -48,18 +62,8 @@
   margin-bottom: 1rem;
   animation: heroTitle 1s ease-in-out forwards;
 }
-.right-hero {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.right-hero .hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
-.left-hero-content .left-hero-second-line {
+.inner-hero-content .inner-hero-second-line {
   position: relative;
   font-size: 1rem;
   font-weight: 500;
@@ -68,7 +72,7 @@
   animation: rightAnimation 1s ease-in-out forwards;
 }
 
-.left-hero-content .left-hero-second-line hr {
+.inner-hero-content .inner-hero-second-line hr {
   position: absolute;
   top: 40%;
   right: 60%;
@@ -83,34 +87,34 @@
     height: 36rem;
     flex-direction: column;
   }
-  .left-hero {
+  .inner-hero {
     width: 50%;
     height: 100%;
   }
-  .left-hero-content {
+  .inner-hero-content {
     width: 15rem;
   }
-  .left-hero-content .left-hero-first-line {
+  .inner-hero-content .inner-hero-first-line {
     font-size: 1rem;
   }
-  .left-hero-content .left-hero-first-line hr {
+  .inner-hero-content .inner-hero-first-line hr {
     width: 2rem;
     left: 25%;
     height: 2px;
   }
-  .left-hero-content h2 {
+  .inner-hero-content h2 {
     font-size: 2rem;
   }
-  .right-hero {
+  .top-hero {
     width: 100%;
     height: 100%;
   }
-  .right-hero .hero-img {
+  .top-hero .hero-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-  .left-hero-content .left-hero-second-line hr {
+  .inner-hero-content .inner-hero-second-line hr {
     width: 2rem;
     right: 47%;
     height: 2px;
@@ -132,34 +136,34 @@
     height: 20rem;
     flex-direction: column;
   }
-  .left-hero {
+  .inner-hero {
     width: 70%;
     height: 100%;
   }
-  .left-hero-content {
+  .inner-hero-content {
     width: 15rem;
   }
-  .left-hero-content .left-hero-first-line {
+  .inner-hero-content .inner-hero-first-line {
     font-size: 1rem;
   }
-  .left-hero-content .left-hero-first-line hr {
+  .inner-hero-content .inner-hero-first-line hr {
     width: 2rem;
     left: 25%;
     height: 2px;
   }
-  .left-hero-content h2 {
+  .inner-hero-content h2 {
     font-size: 2rem;
   }
-  .right-hero {
+  .top-hero {
     width: 100%;
     height: 100%;
   }
-  .right-hero .hero-img {
+  .top-hero .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .left-hero-content .left-hero-second-line hr {
+  .inner-hero-content .inner-hero-second-line hr {
     width: 2rem;
     right: 47%;
     height: 2px;
@@ -195,6 +199,15 @@
   }
   100% {
     transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes heroImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }

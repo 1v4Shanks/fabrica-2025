@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../context/ShopContext";
 import { LoginContext } from "../../context/LoginContext";
 function PlaceOrder() {
-  const {paymentMethod, setPaymentMethod, placeOrder} = useContext(ShopContext);
-  const {user} = useContext(LoginContext);
+  const { paymentMethod, setPaymentMethod, placeOrder } =
+    useContext(ShopContext);
+  const { user } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const handlePaymentMethod = (name) => {

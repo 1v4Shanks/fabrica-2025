@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 import CartTotal from "../../components/CartTotal/CartTotal";
 
 function Cart() {
-  const { cartItems, setCartItems, currency } = useContext(ShopContext);
+  const { cartItems, setCartItems, currency, saveCartToDatabase, userId } =
+    useContext(ShopContext);
   const navigate = useNavigate();
 
   const updateQuantity = (id, size, action) => {
-    setCartItems((prevCarts) =>
-      prevCarts.map((item) => {
+    setCartItems((prevCarts) => {
+      const updatedCart = prevCarts.map((item) => {
         if (item._id === id && item.size === size) {
           const currentQty = item.quantity;
           const newQty =
@@ -22,14 +23,25 @@ function Cart() {
           return { ...item, quantity: newQty };
         }
         return item;
-      })
-    );
+      });
+      if (userId) {
+        saveCartToDatabase(updatedCart);
+      }
+      return updatedCart;
+    });
   };
 
   const handleRemoveCart = (id, size) => {
-    setCartItems((prevCart) =>
-      prevCart.filter((item) => !(item._id === id && item.size === size))
-    );
+    setCartItems((prevCart) => {
+      const updatedCart = prevCart.filter(
+        (item) => !(item._id === id && item.size === size)
+      );
+      if (userId) {
+        saveCartToDatabase(updatedCart);
+      }
+
+      return updatedCart;
+    });
   };
 
   if (cartItems.length < 1) {

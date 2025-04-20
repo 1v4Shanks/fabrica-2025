@@ -1,6 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { db } from "../firebaseDataPush/firebaseDataConfig";
+import { LoginContext } from "./LoginContext";
+import { get, ref, set } from "firebase/database";
+import { database } from "../firebaseRealTimedata/firebaserealTimeConfig";
 export const ShopContext = createContext();
 
 const ShopContextProvider = ({ children }) => {
@@ -11,6 +14,78 @@ const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [orderedItems, setOrderedItems] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("cashOnDelivery");
+
+  const { user } = useContext(LoginContext);
+  const userId = user ? user.uid : null;
+
+  //--------------update-orders-----------//
+
+  const saveOrdersToDatabase = async (updatedOrder) => {
+    if (!userId) return;
+
+    try {
+      const userOrdersRef = ref(database, "orders/" + userId);
+      await set(userOrdersRef, updatedOrder);
+    } catch (error) {
+      console.error("Error saving orders to database:", error);
+    }
+  };
+
+  // ------------fetching orders----------------//
+
+  const fetchOrdersData = async () => {
+    if (!userId) return;
+
+    try {
+      const ordersRef = ref(database, "orders/" + userId);
+      const snapshot = await get(ordersRef);
+      if (snapshot.exists()) {
+        setOrderedItems(snapshot.val());
+      } else {
+        setOrderedItems([]);
+      }
+    } catch (error) {
+      console.log("something went wrong", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchOrdersData();
+  }, [userId]);
+
+  //--------------update carts ------------//
+
+  const saveCartToDatabase = async (updatedCart) => {
+    if (!userId) return;
+    try {
+      const userCartsRef = ref(database, "carts/" + userId);
+      await set(userCartsRef, updatedCart);
+    } catch (error) {
+      console.error("Error saving cart to database:", error);
+    }
+  };
+
+  //----------------fetching carts data--------------------//
+
+  const fetchCartData = async () => {
+    if (!userId) return;
+
+    try {
+      const cartsRef = ref(database, "carts/" + userId);
+      const snapshot = await get(cartsRef);
+      if (snapshot.exists()) {
+        setCartItems(snapshot.val());
+      } else {
+        setCartItems([]);
+      }
+    } catch (error) {
+      console.log("something went wrong", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCartData();
+  }, [userId]);
 
   // --------------fetching data ------------//
 
@@ -43,6 +118,8 @@ const ShopContextProvider = ({ children }) => {
   );
   const total = subTotal + fee;
 
+  // -------------------- place order ----------------------//
+
   const placeOrder = () => {
     let paymentMode =
       paymentMethod === "cashOnDelivery" ? "COD" : paymentMethod;
@@ -51,9 +128,19 @@ const ShopContextProvider = ({ children }) => {
       date: new Date().toDateString(),
       payment: paymentMode,
     }));
-    setOrderedItems((prevOrder) => [...prevOrder, ...newOrder]);
+    setOrderedItems((prevOrder) => {
+      const updateOrders = [...newOrder, ...prevOrder];
+      if (userId) {
+        saveOrdersToDatabase(updateOrders);
+      }
+      return updateOrders;
+    });
     setCartItems([]);
+    if (userId) {
+      saveCartToDatabase([]);
+    }
   };
+
   return (
     <ShopContext.Provider
       value={{
@@ -71,6 +158,8 @@ const ShopContextProvider = ({ children }) => {
         placeOrder,
         orderedItems,
         loading,
+        saveCartToDatabase,
+        userId,
       }}
     >
       {children}

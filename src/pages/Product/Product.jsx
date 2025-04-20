@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 function Product() {
   // Context and Route
-  const { products, currency, setCartItems } = useContext(ShopContext);
+  const { products, currency, setCartItems,saveCartToDatabase,userId} = useContext(ShopContext);
   const { productId } = useParams();
 
   // State
@@ -70,11 +70,12 @@ function Product() {
     }
 
     setCartItems((prevCart) => {
+      let updatedCart;
       const existingIndex = prevCart.findIndex(
         (item) => item._id === product._id && item.size === selectedSize
       );
       if (existingIndex !== -1) {
-        return prevCart.map((item) => {
+         updatedCart= prevCart.map((item) => {
           if (item._id === product._id && item.size === selectedSize) {
             return { ...item, quantity: item.quantity + 1 };
           } else {
@@ -82,7 +83,7 @@ function Product() {
           }
         });
       } else {
-        return [
+         updatedCart= [
           ...prevCart,
           {
             _id: product._id,
@@ -94,6 +95,11 @@ function Product() {
           },
         ];
       }
+      if(userId){
+        saveCartToDatabase(updatedCart);
+      }
+
+      return updatedCart;
     });
     toast.success("Item added to cart!");
   };
